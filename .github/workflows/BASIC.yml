@@ -1,0 +1,77 @@
+name: BiTGApps Build
+
+on:
+  workflow_dispatch:
+
+env:
+  TOKEN: ${{ secrets.TOKEN }}
+
+jobs:
+  build:
+    if: github.repository_owner == 'BiTGApps'
+    runs-on: ubuntu-latest
+
+    steps:
+       - name: Initial Setup
+         uses: actions/checkout@v3
+
+       - name: Create BiTGApps
+         run: |
+           rm -rf BiTGApps
+           mkdir BiTGApps
+
+       - name: Clone Build Sources
+         run: |
+           git clone https://github.com/BiTGApps/BiTGApps-Variants BiTGApps
+
+       - name: Create Sources
+         run: |
+           mkdir BiTGApps/sources
+
+       - name: Install Git LFS
+         run: |
+           wget https://github.com/git-lfs/git-lfs/releases/download/v3.2.0/git-lfs-linux-amd64-v3.2.0.tar.gz
+           tar -xz -f git-lfs-linux-amd64-v3.2.0.tar.gz && cd git-lfs-3.2.0 && sudo ./install.sh && cd ..
+
+       - name: Clone Package Sources
+         run: |
+           git clone https://github.com/BiTGApps/arm-sources BiTGApps/sources/arm-sources
+           git clone https://github.com/BiTGApps/arm64-sources BiTGApps/sources/arm64-sources
+           git clone https://github.com/BiTGApps/common-sources BiTGApps/sources/common-sources
+           git clone https://github.com/BiTGApps/setup-sources BiTGApps/sources/setup-sources
+
+       - name: Clone Variant Sources
+         run: |
+           git clone https://github.com/BiTGApps/addon-sources BiTGApps/sources/addon-sources
+           git clone https://github.com/BiTGApps/Legacy-Sources BiTGApps/sources/legacy-sources
+
+       - name: Download LFS Objects
+         run: |
+           cd BiTGApps/sources/addon-sources && git lfs install --local && git lfs pull && cd ../../..
+           cd BiTGApps/sources/legacy-sources && git lfs install --local && git lfs pull && cd ../../..
+
+       - name: Build BiTGApps Package
+         env:
+           VARIANT: BASIC
+         run: |
+           cd BiTGApps
+           . envsetup.sh
+           make
+           cd ..
+
+       - name: Github Release CLI
+         run: |
+           npm install -g github-release-cli
+
+       - name: Upload Build Artifact
+         env:
+           VARIANT: BASIC
+         run: |
+           cd BiTGApps
+           . envsetup.sh
+           . release.sh
+           cd ..
+
+       - name: Cleanup
+         run: |
+           rm -rf BiTGApps
