@@ -67,6 +67,7 @@ etc/permissions/com.google.android.maps.xml
 etc/permissions/android.ext.services.xml
 etc/permissions/privapp-permissions-google.xml
 etc/permissions/split-permissions-google.xml
+etc/permissions/variants-permissions-google.xml
 etc/preferred-apps/google.xml
 etc/sysconfig/google.xml
 etc/sysconfig/google_build.xml

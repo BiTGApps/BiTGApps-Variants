@@ -40,6 +40,7 @@ rm -rf $SYSTEM/etc/permissions/com.google.android.dialer.support.xml
 rm -rf $SYSTEM/etc/permissions/com.google.android.maps.xml
 rm -rf $SYSTEM/etc/permissions/privapp-permissions-google.xml
 rm -rf $SYSTEM/etc/permissions/split-permissions-google.xml
+rm -rf $SYSTEM/etc/permissions/variants-permissions-google.xml
 rm -rf $SYSTEM/etc/preferred-apps/google.xml
 rm -rf $SYSTEM/etc/sysconfig/google.xml
 rm -rf $SYSTEM/etc/sysconfig/google_build.xml
