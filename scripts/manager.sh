@@ -48,6 +48,7 @@ rm -rf $SYSTEM/etc/sysconfig/google.xml
 rm -rf $SYSTEM/etc/sysconfig/google_build.xml
 rm -rf $SYSTEM/etc/sysconfig/google_exclusives_enable.xml
 rm -rf $SYSTEM/etc/sysconfig/google-hiddenapi-package-whitelist.xml
+rm -rf $SYSTEM/etc/sysconfig/google-install-constraints-allowlist.xml
 rm -rf $SYSTEM/etc/sysconfig/google-rollback-package-whitelist.xml
 rm -rf $SYSTEM/etc/sysconfig/google-staged-installer-whitelist.xml
 rm -rf $SYSTEM/etc/security/fsverity/gms_fsverity_cert.der

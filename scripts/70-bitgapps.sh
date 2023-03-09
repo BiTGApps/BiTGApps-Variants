@@ -73,6 +73,7 @@ etc/sysconfig/google.xml
 etc/sysconfig/google_build.xml
 etc/sysconfig/google_exclusives_enable.xml
 etc/sysconfig/google-hiddenapi-package-whitelist.xml
+etc/sysconfig/google-install-constraints-allowlist.xml
 etc/sysconfig/google-rollback-package-whitelist.xml
 etc/sysconfig/google-staged-installer-whitelist.xml
 etc/security/fsverity/gms_fsverity_cert.der
