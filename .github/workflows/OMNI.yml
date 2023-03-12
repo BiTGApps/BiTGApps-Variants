@@ -65,11 +65,9 @@ jobs:
            sed -i -e "s/GALLERY/Gallery/g" BiTGApps/scripts/installer.sh
 
        - name: Build BiTGApps Package
-         env:
-           VARIANT: OMNI
          run: |
            cd BiTGApps
-           . envsetup.sh
+           . envsetup.sh OMNI
            make
            cd ..
 
@@ -78,11 +76,9 @@ jobs:
            npm install -g github-release-cli
 
        - name: Upload Build Artifact
-         env:
-           VARIANT: OMNI
          run: |
            cd BiTGApps
-           . envsetup.sh
+           . envsetup.sh OMNI
            . release.sh
            cd ..
 

@@ -51,11 +51,9 @@ jobs:
            cd BiTGApps/sources/legacy-sources && git lfs install --local && git lfs pull && cd ../../..
 
        - name: Build BiTGApps Package
-         env:
-           VARIANT: BASIC
          run: |
            cd BiTGApps
-           . envsetup.sh
+           . envsetup.sh BASIC
            make
            cd ..
 
@@ -64,11 +62,9 @@ jobs:
            npm install -g github-release-cli
 
        - name: Upload Build Artifact
-         env:
-           VARIANT: BASIC
          run: |
            cd BiTGApps
-           . envsetup.sh
+           . envsetup.sh BASIC
            . release.sh
            cd ..
 
