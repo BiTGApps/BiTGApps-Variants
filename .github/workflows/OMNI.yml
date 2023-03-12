@@ -53,16 +53,16 @@ jobs:
        - name: Update OMNI Scripts
          run: |
            # BACKUP
-           sed -i -e "s/DESKCLOCK/DeskClock/g" scripts/70-bitgapps.sh
-           sed -i -e "s/KEYBOARD/Keyboard/g" scripts/70-bitgapps.sh
+           sed -i -e "s/DESKCLOCK/DeskClock/g" BiTGApps/scripts/70-bitgapps.sh
+           sed -i -e "s/KEYBOARD/Keyboard/g" BiTGApps/scripts/70-bitgapps.sh
            # RESTORE
-           sed -i -e "s/CLOCK/Clock/g" scripts/70-bitgapps.sh
-           sed -i -e "s/LATINIME/LatinIME/g" scripts/70-bitgapps.sh
-           sed -i -e "s/GALLERY/Gallery/g" scripts/70-bitgapps.sh
+           sed -i -e "s/CLOCK/Clock/g" BiTGApps/scripts/70-bitgapps.sh
+           sed -i -e "s/LATINIME/LatinIME/g" BiTGApps/scripts/70-bitgapps.sh
+           sed -i -e "s/GALLERY/Gallery/g" BiTGApps/scripts/70-bitgapps.sh
            # INSTALL
-           sed -i -e "s/CLOCK/Clock/g" scripts/installer.sh
-           sed -i -e "s/LATINIME/LatinIME/g" scripts/installer.sh
-           sed -i -e "s/GALLERY/Gallery/g" scripts/installer.sh
+           sed -i -e "s/CLOCK/Clock/g" BiTGApps/scripts/installer.sh
+           sed -i -e "s/LATINIME/LatinIME/g" BiTGApps/scripts/installer.sh
+           sed -i -e "s/GALLERY/Gallery/g" BiTGApps/scripts/installer.sh
 
        - name: Build BiTGApps Package
          env:
