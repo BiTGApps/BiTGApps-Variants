@@ -20,3 +20,18 @@ git clone https://github.com/BiTGApps/setup-sources BiTGApps/sources/setup-sourc
 # Clone Variant Sources
 git clone https://github.com/BiTGApps/addon-sources BiTGApps/sources/addon-sources
 git clone https://github.com/BiTGApps/Legacy-Sources BiTGApps/sources/legacy-sources
+
+# Update OMNI Scripts
+if [ "$1" == "omni" ]; then
+  # BACKUP
+  sed -i -e "s/DESKCLOCK/DeskClock/g" BiTGApps/scripts/70-bitgapps.sh
+  sed -i -e "s/KEYBOARD/Keyboard/g" BiTGApps/scripts/70-bitgapps.sh
+  # RESTORE
+  sed -i -e "s/CLOCK/Clock/g" BiTGApps/scripts/70-bitgapps.sh
+  sed -i -e "s/LATINIME/LatinIME/g" BiTGApps/scripts/70-bitgapps.sh
+  sed -i -e "s/GALLERY/Gallery/g" BiTGApps/scripts/70-bitgapps.sh
+  # INSTALL
+  sed -i -e "s/CLOCK/Clock/g" BiTGApps/scripts/installer.sh
+  sed -i -e "s/LATINIME/LatinIME/g" BiTGApps/scripts/installer.sh
+  sed -i -e "s/GALLERY/Gallery/g" BiTGApps/scripts/installer.sh
+fi
